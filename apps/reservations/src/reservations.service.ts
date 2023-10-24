@@ -17,18 +17,23 @@ export class ReservationsService {
   }
 
   findAll() {
-    return `This action returns all reservations`;
+    return this.reservationsRepository.find({});
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} reservation`;
+  findOne(_id: string) {
+    return this.reservationsRepository.findOne({ _id })
   }
 
-  update(id: number, updateReservationDto: UpdateReservationDto) {
-    return `This action updates a #${id} reservation`;
+  update(_id: string, updateReservationDto: UpdateReservationDto) {
+    return this.reservationsRepository.findOneAndUpdate(
+      { _id },
+      { $set: updateReservationDto },
+    );
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} reservation`;
+  remove(_id: string) {
+    return this.reservationsRepository.findOneAndDelete(
+      { _id }
+    )
   }
 }

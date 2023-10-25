@@ -9,5 +9,5 @@ export class UserDocument extends AbstractDocument {
     password: string
 }
 
-export const ReservationSchema =
+export const UserSchema =
   SchemaFactory.createForClass(UserDocument);

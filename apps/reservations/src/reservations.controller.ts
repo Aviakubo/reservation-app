@@ -25,7 +25,7 @@ export class ReservationsController {
     @CurrentUser() user: UserDto,
   ) {
     console.log('Reservations controller || user: ', user);
-    return this.reservationsService.create(createReservationDto, user._id);
+    return this.reservationsService.create(createReservationDto, user);
   }
 
   @UseGuards(JwtAuthGuard)
